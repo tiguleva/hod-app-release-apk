@@ -1,39 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'src/providers/app_provider.dart';
+import 'src/screens/address_list_screen.dart';
+import 'src/screens/map_screen.dart';
+import 'src/screens/route_history_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const HodApp());
 }
 
-class MyApp extends StatelessWidget {
+class HodApp extends StatelessWidget {
+  const HodApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Hod App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (context) => AppProvider(),
+      child: MaterialApp(
+        title: 'Hod',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+          useMaterial3: true,
+        ),
+        home: const RootTabs(),
       ),
-      home: MyHomePage(title: 'Hod App'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+class RootTabs extends StatefulWidget {
+  const RootTabs({super.key});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<RootTabs> createState() => _RootTabsState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RootTabsState extends State<RootTabs> {
+  int _index = 0;
+
+  final _pages = const [
+    AddressListScreen(),
+    MapScreen(),
+    RouteHistoryScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Text('Hello World!'),
+      body: _pages[_index],
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _index,
+        onDestinationSelected: (i) => setState(() => _index = i),
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.list), label: 'Адреса'),
+          NavigationDestination(icon: Icon(Icons.map), label: 'Карта'),
+          NavigationDestination(icon: Icon(Icons.history), label: 'История'),
+        ],
       ),
     );
   }
