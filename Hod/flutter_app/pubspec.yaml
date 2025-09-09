@@ -1,0 +1,27 @@
+name: hod_flutter
+description: Hod Android app
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  provider: ^6.1.2
+  sqflite: ^2.3.3
+  path_provider: ^2.1.3
+  path: ^1.9.0
+  geolocator: ^12.0.0
+  permission_handler: ^11.3.1
+  http: ^1.2.1
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.1
+  uuid: ^4.4.0
+
+flutter:
+  uses-material-design: true
+
+

@@ -1,0 +1,28 @@
+[33mcommit 6f50a938167be63ea1c10941a05ce031039990a9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Your Name <your.email@example.com>
+Date:   Tue Sep 9 23:03:48 2025 +0300
+
+    Initial commit: Flutter Hod app with GitHub Actions
+
+.github/workflows/android-apk.yml
+README.md
+flutter_app/.github/workflows/android-apk.yml
+flutter_app/.gitignore
+flutter_app/README.md
+flutter_app/android/app/src/main/AndroidManifest.xml
+flutter_app/lib/main.dart
+flutter_app/lib/src/data/database.dart
+flutter_app/lib/src/models/address.dart
+flutter_app/lib/src/models/route.dart
+flutter_app/lib/src/providers/app_provider.dart
+flutter_app/lib/src/screens/add_address_screen.dart
+flutter_app/lib/src/screens/address_list_screen.dart
+flutter_app/lib/src/screens/create_route_screen.dart
+flutter_app/lib/src/screens/edit_address_screen.dart
+flutter_app/lib/src/screens/map_screen.dart
+flutter_app/lib/src/screens/route_detail_screen.dart
+flutter_app/lib/src/screens/route_history_screen.dart
+flutter_app/lib/src/services/geocoding_service.dart
+flutter_app/lib/src/services/location_service.dart
+flutter_app/lib/src/services/route_service.dart
+flutter_app/pubspec.yaml
